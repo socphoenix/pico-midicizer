@@ -1,24 +1,3 @@
-# Copyright (c) 2023 Michael Bell
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
-
-
 import board
 import digitalio
 from digitalio import DigitalInOut, Direction, Pull
@@ -40,6 +19,7 @@ choirValue = choirShoe.value // 512
 
 usb_midi = adafruit_midi.MIDI(midi_out=usb_midi.ports[1], out_channel=10)
 #set up lists
+setStatus = 1
 presets = [0,0,0,0,0,0,0,0,0,0,0,0]
 noteStatus = []
 notePins = []
@@ -52,8 +32,8 @@ mcpCodes = [0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27]
 
 #i2c codes:
 #using format i2c = busio.I2C(board.SCL, board.SDA)
-i2c0 = busio.I2C(board.GP1, board.GP0)
-i2c1 = busio.I2C(board.GP3, board.GP2)
+i2c0 = busio.I2C(board.GP1, board.GP0, frequency=400000)
+i2c1 = busio.I2C(board.GP3, board.GP2, frequency=400000)
 
 #cancel button
 cncl = DigitalInOut(board.GP4)
@@ -245,8 +225,12 @@ while True:
 
 	if cncl.value == 0:
 		usb_midi.send(NoteOn(60, 64))
-	if st.value == 0:
+	if st.value == 0 and st.value != setStatus:
 		usb_midi.send(NoteOn(61, 64))
+		setStatus = 0
+	if st.value == 1 and st.value != setStatus:
+		usb_midi.send(NoteOff(61, 64))
+		setStatus = 1
 	if memMinus.value == 0:
 		usb_midi.send(NoteOn(62, 64))
 	if memPlus.value == 0:
@@ -310,3 +294,5 @@ while True:
 			noteStatus[x] = y
 			usb_midi.send(NoteOff(midiNum, 64))
 		midiNum = midiNum + 1
+
+
