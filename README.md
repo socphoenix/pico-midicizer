@@ -5,7 +5,7 @@ downloadable [here](https://circuitpython.org/libraries).
 
 ## Building the microcontroller:
 It is assumed that you have some basic knowledge of these chips, if you are unfamiliar with mcp23017, there is plenty of documentation online explaining
-the wiring.
+the wiring, see [here](https://ww1.microchip.com/downloads/en/devicedoc/20001952c.pdf)
 
 The following parts are needed to build the controller:
 > Pi [Pico](https://www.adafruit.com/product/5525)
@@ -26,14 +26,16 @@ The following parts are needed to build the controller:
 
 The breadboard layout is pretty simple. the first board should have the pi pico and 3 mcp23017 chips:
 ![board1](https://user-images.githubusercontent.com/18272432/230613525-190ecc4e-7fe2-4a7b-b822-f753d7ef565a.png)
-sda/scl on the first chip should be connected to pins 2, 1 respectively on the pico as shown in the diagram.
+sda/scl on the first chip should be connected to pins 1, 2 respectively on the pico as shown in the diagram, 13, 12 respectively on the mcp23017.
+(second from the top left for sda, 3rd for scl as laid out in the diagram)
 
 The second and third boards each have 4 mcp23017 chips:
 ![board2](https://user-images.githubusercontent.com/18272432/230613637-fadcc066-0b5f-42d4-a550-cb0bcef9e13d.png)
 
 ![board3](https://user-images.githubusercontent.com/18272432/230613670-bf99930f-9f8a-4f1c-820b-421056ad2405.png)
 
-On the third board, chip 2 starts the new i2c line, these need to be connected to pins 5, 4 respectively on the pico. This was not in the diagram. 
+On the third board, chip 2 starts the new i2c line, sda/scl need to be connected to pins 4, 5 respectively on the pico, 13, 12 respectively on the 
+mcp23017. (second from the top left for sda, 3rd for scl as laid out in the diagram). This wiring was not in the all boards diagram. 
 
 The fourth board should be one mcp23017 but itself:
 
