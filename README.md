@@ -21,11 +21,14 @@ The following parts are needed to build the controller:
 
 The breadboard layout is pretty simple. the first board should have the pi pico and 3 mcp23017 chips:
 ![board1](https://user-images.githubusercontent.com/18272432/230613525-190ecc4e-7fe2-4a7b-b822-f753d7ef565a.png)
+sda/scl on the first chip should be connected to pins 2, 1 respectively as shown in the diagram.
 
 The second and third boards each have 4 mcp23017 chips:
 ![board2](https://user-images.githubusercontent.com/18272432/230613637-fadcc066-0b5f-42d4-a550-cb0bcef9e13d.png)
 
 ![board3](https://user-images.githubusercontent.com/18272432/230613670-bf99930f-9f8a-4f1c-820b-421056ad2405.png)
+
+On the third board, chip 2 starts the new i2c line, these need to be connected to pins 5, 4 respectively. This was not in the diagram. 
 
 The fourth board should be one mcp23017 but itself:
 
