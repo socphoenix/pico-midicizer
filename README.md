@@ -138,7 +138,7 @@ On our pedals these were as follows:
 Do this to one of the potentiometers on each pedal, and run the output wire from each back up to the pico. One of these will go in pin 31, the other in pin
 32 (the one in pin 31 will be midi controller 1, the other 2 both on channel 16 when setting this up in vpo software).
 
-###Software Setup
+### Software Setup
 I used [GrandOrgue](https://github.com/GrandOrgue/grandorgue) though this should be similar to Hauptwerk for setup. For a sample set [Freisach](https://piotrgrabowski.pl/friesach/) was used.
 
 > swell manual: midi channel 1 9x note velocity 1-127, notes 36-127
