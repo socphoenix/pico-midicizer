@@ -1,5 +1,5 @@
 # pico-midicizer
-This guide/code is for creating a midi controller to digitize an organ, with a guid on how it was installed into a Conn 650 theater organ. The code relies
+This guide/code is for creating a midi controller to digitize an organ, with a guide on how it was installed into a Conn 650 theater organ. The code relies
 on Circuitpython 8 (tested with 8.0.4), which can be downloaded [here](https://circuitpython.org/board/raspberry_pi_pico/), and uses additional libraries
 downloadable [here](https://circuitpython.org/libraries).
 
