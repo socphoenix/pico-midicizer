@@ -22,6 +22,8 @@ The following parts are needed to build the controller:
 
 > 4 2.2k resistors, one attached to sda and scl of the first mcp chip of each i2c lane.
 
+> 1/16" wood like [these](https://www.michaels.com/product/wood-square-16ct-by-make-market-10691829)
+
 The breadboard layout is pretty simple. the first board should have the pi pico and 3 mcp23017 chips:
 ![board1](https://user-images.githubusercontent.com/18272432/230613525-190ecc4e-7fe2-4a7b-b822-f753d7ef565a.png)
 sda/scl on the first chip should be connected to pins 2, 1 respectively on the pico as shown in the diagram.
