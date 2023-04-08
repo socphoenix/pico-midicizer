@@ -143,6 +143,10 @@ On our pedals these were as follows:
 Do this to one of the potentiometers on each pedal, and run the output wire from each back up to the pico. One of these will go in pin 31, the other in pin
 32 (the one in pin 31 will be midi controller 1, the other 2 both on channel 16 when setting this up in vpo software).
 
+### Computer Build
+I reused a computer for this, what's most important is the amount of ram. 2 channel organs often use over 16GB of ram. I have an example build for a new
+computer and touchschreen on [newegg.](https://newegg.io/85d107a)
+
 ### Software Setup
 I used [GrandOrgue](https://github.com/GrandOrgue/grandorgue) though this should be similar to Hauptwerk for setup. For a sample set [Freisach](https://piotrgrabowski.pl/friesach/) was used.
 
@@ -165,5 +169,12 @@ I used [GrandOrgue](https://github.com/GrandOrgue/grandorgue) though this should
 > presets (all 12 in ascending order 0-5, 0-5): midi channel 16 9x note value: 64-76
 
 > expression shoes: midi channel 16 bx controller, controller 1/2, range 127-1
+
+As a note, Grandorgue comes with safe but not ideal defaults. In audio settings you should click on your sound card, then properties,
+and request a smaller latency. Then you should change buffers per sample to something as low as you can get without audio glitches. Mine is set up for
+24 buffers for sample, and a desired latency of 1.
+<img width="654" alt="Screenshot 2023-04-08 at 5 56 25 PM" src="https://user-images.githubusercontent.com/18272432/230747377-306bd51f-dcb2-4582-83d5-38d906ca7d2e.png">
+<img width="654" alt="Screenshot 2023-04-08 at 5 56 56 PM" src="https://user-images.githubusercontent.com/18272432/230747384-3898cd4e-1ef6-468a-8207-36ca491d4ab2.png">
+
 
 This should be all you need to start playing!
