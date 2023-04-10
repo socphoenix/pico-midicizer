@@ -99,7 +99,7 @@ wire should be placed to make contact to complete the circuit. place the wood do
 should go.
 ![23-04-03 12-52-02 1397](https://user-images.githubusercontent.com/18272432/230617040-b1ade34b-af58-471c-bc56-97debba4ecc0.jpg)
 Using glue, glue down the wire with a longer stripped end to the board where marked, then run it up to the mcp23017 pins. starting with board four if 
-starting with the lowest manual, look at the top of the chip and go eight pins to the left of the end of the chip (start at the top key of the manual). Then work rightwards to the end of the chip, and then work right to left doing the same for the 8 pins on the bottom. Continue in this pattern working towards the pi pico.
+starting with the lowest manual, look at the top of the rightmost chip and use the bottom second to last (from the right) pin (start at the top key of the manual). Then work leftwards to the end of the chip for the first 7 wires. On the next chip and all others, start 8 in from the right on the top of the chip and work rightwards to the end, then 8 pins right to left on the bottom. You should be getting closer to the pi pico as you complete the pins on each of the mcp23017 units.
 ![23-04-03 13-18-52 1393](https://user-images.githubusercontent.com/18272432/230617370-325678fb-7811-4272-9427-0b3c63895a67.jpg)
 
 Once completed take one of the springs and tie some stripped wire to the end, then use some heat shrink tube to secure it down. Connect this wire to ground
