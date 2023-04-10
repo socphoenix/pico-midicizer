@@ -16,7 +16,7 @@ The following parts are needed to build the controller:
 
 > 14 mcp23017 [chips](https://www.adafruit.com/product/732) (these can be found cheaper on ebay)
 
-> between 6-700 feet of wire, I used 20 gauge [doorbell wire](https://www.homedepot.com/p/Cerrowire-500-ft-20-2-Twisted-Copper-Bell-Wire-206-0102J1/202206413)
+> between 6-700 feet of wire (6-700 feet of the wire linked which is two wires wrapped together), I used 20 gauge [doorbell wire](https://www.homedepot.com/p/Cerrowire-500-ft-20-2-Twisted-Copper-Bell-Wire-206-0102J1/202206413)
 
 > buttons for the pedals, I used [7mm tactile buttons](https://www.amazon.com/Momentary-Tactile-Button-Switch-black/dp/B0796Q3PRB/ref=sr_1_3?crid=2EAVE0CUDA4KD&keywords=7mm+tactile+buttons&qid=1680872519&sprefix=7mm+tactile+buttons%2Caps%2C139&sr=8-3)
 
