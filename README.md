@@ -67,7 +67,8 @@ soldering a ground wire to one of the contact rails, and positive wires to the b
 when a key is depressed. The route shown in this guide was picked in order to minimize the amount of time needed to do this install, it is not necessarily
 the best way to do this by any stretch of the imagination.**
 
-It is likely best to start with the bottom manual and work your way up. There is space to stick the breadboards down behind the top manual.
+It is likely best to start with the bottom manual and work your way up. There is space to stick the breadboards down behind the top manual if you remove
+a few of the original cards inside the organ.
 ![23-04-03 09-04-02 1389](https://user-images.githubusercontent.com/18272432/230615686-6dd6e459-9fff-43b1-90ab-0590b181dee3.jpg)
 
 This project will also use the buttons on each keyboard for presets/cancel and set, and mem+/mem- to change memory levels.
