@@ -116,7 +116,7 @@ Colors/pins for these on our console were:
 
 > Grey: 10
 
-Repeat the keys as above.
+Repeat the keys as above, continuing to place wires from where you left off on the mcp23017 chips.
 
 The third manual we used C and S buttons for cancel/set. we cut the wires underneath and spliced as it was much harder to get the wires traced. Pins for
 these are:
