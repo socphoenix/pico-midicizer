@@ -59,6 +59,14 @@ disappear, then reappear once the install is done. There should be a folder mark
 to this folder. Using an editor like [Mu](https://codewith.mu) that will write files completely on saving, copy the code.py file from this repository
 to the root of the drive as code.py
 
+<b>some computers may have issues booting with the controller plugged in due to it showing up as a storage device. It slowed the computer I'm using
+  down by quite a bit. Put the following code in a file name boot.py on the root of the controller's drive to disable the usb storage from showing up, 
+  once you are sure you won't need to access it again:</b>
+  
+> import storage
+> 
+> storage.disable_usb_drive()
+
 At this point you can move to wiring the organ
 
 ### Wiring of the Conn 650
