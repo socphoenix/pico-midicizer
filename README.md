@@ -187,3 +187,5 @@ and request a smaller latency. Then you should change buffers per sample to some
 
 
 This should be all you need to start playing!
+
+You can view the before/after [here](https://youtu.be/CqBBFAP1S0w)
