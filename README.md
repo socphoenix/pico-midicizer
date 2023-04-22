@@ -56,6 +56,8 @@ disappear, then reappear once the install is done. There should be a folder mark
 
 > adafruit_bus_device
 
+> adafruit_midi
+
 to this folder. Using an editor like [Mu](https://codewith.mu) that will write files completely on saving, copy the code.py file from this repository
 to the root of the drive as code.py
 
