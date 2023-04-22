@@ -52,8 +52,8 @@ mcpCodes = [0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27]
 
 #i2c codes:
 #using format i2c = busio.I2C(board.SCL, board.SDA)
-i2c0 = busio.I2C(board.GP1, board.GP0, frequency=400000)
-i2c1 = busio.I2C(board.GP3, board.GP2, frequency=400000)
+i2c0 = busio.I2C(board.GP1, board.GP0, frequency=1000000)
+i2c1 = busio.I2C(board.GP3, board.GP2, frequency=1000000)
 
 #cancel button
 cncl = DigitalInOut(board.GP4)
