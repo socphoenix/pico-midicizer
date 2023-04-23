@@ -183,7 +183,7 @@ I used [GrandOrgue](https://github.com/GrandOrgue/grandorgue) though this should
 
 As a note, Grandorgue comes with safe but not ideal defaults. In audio settings you should click on your sound card, then properties,
 and request a smaller latency. Then you should change buffers per sample to something as low as you can get without audio glitches. Mine is set up for
-24 buffers for sample, and a desired latency of 1.
+64 buffers for sample, and a desired latency of 2 (I am using a M-audio usb audio interface. closest made now is [this](https://www.sweetwater.com/store/detail/AIR192x4--m-audio-air-192x4-usb-audio-interface)).
 <img width="654" alt="Screenshot 2023-04-08 at 5 56 25 PM" src="https://user-images.githubusercontent.com/18272432/230747377-306bd51f-dcb2-4582-83d5-38d906ca7d2e.png">
 <img width="654" alt="Screenshot 2023-04-08 at 5 56 56 PM" src="https://user-images.githubusercontent.com/18272432/230747384-3898cd4e-1ef6-468a-8207-36ca491d4ab2.png">
 
@@ -191,3 +191,11 @@ and request a smaller latency. Then you should change buffers per sample to some
 This should be all you need to start playing!
 
 You can view the before/after [here](https://youtu.be/CqBBFAP1S0w)
+
+### License
+[CircuitPython](https://github.com/adafruit/circuitpython) and its [library bundle](https://github.com/adafruit/Adafruit_CircuitPython_Bundle) are licensed under the MIT License, as is this project. Please the LICENSE file for the full license.
+
+### Contributing
+This repo should stay stable for quite a while, but if you find bugs open an issue here on Github so it can be addressed.
+If you add features that you think are worth adding to the repo please fork the project and issue a pull request. I will look at any requests that 
+come through!
