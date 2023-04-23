@@ -51,7 +51,7 @@ The boards will need power/ground as well as i2c lines run between them as shown
 
 ### installing circuitpython:
 Hold the bootsel button on the pico and plug it into your computer. drag the circuitpython.uf2 file to the removable drive that shows up. It will
-disappear, then reappear once the install is done. There should be a folder marked library. From the .zip bundle of libraries extract the files
+disappear, then reappear once the install is done. There should be a folder named lib. From the .zip bundle of libraries copy the folders
 > adafruit_mcp230xx.mpy
 
 > adafruit_bus_device
