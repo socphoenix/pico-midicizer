@@ -10,9 +10,9 @@ the wiring, see [here](https://ww1.microchip.com/downloads/en/devicedoc/20001952
 The following parts are needed to build the controller:
 > Pi [Pico](https://www.adafruit.com/product/5525)
 
-> 3 full sized [breadboards](https://www.adafruit.com/product/239)
+> 3 full sized [breadboards.](https://www.adafruit.com/product/239) * The springs on these started to cause intermittent issues at the 1 year mark. I had hoped to avoid solder but I've moved to prototype boards like these [full size boards.](https://www.amazon.com/Prototype-Solderable-Breadboard-Electronics-Gold-Plated/dp/B082KY5Y5Z?pd_rd_w=wNuX7&content-id=amzn1.sym.cd152278-debd-42b9-91b9-6f271389fda7&pf_rd_p=cd152278-debd-42b9-91b9-6f271389fda7&pf_rd_r=3K9R7N60D4CY3MASXBQN&pd_rd_wg=jf7rj&pd_rd_r=55cdd6aa-d703-446f-82b3-5b8a26bd043d&pd_rd_i=B082KY5Y5Z&th=1) They are roughly the same size and shouldn't require changes compared to the images on this. If using the smaller version from adafruit you will need to adjust slightly, I needed to place 2 of the mcp23017 chips on the last board for the keyboards instead of 1. Wiring was otherwise the same.
 
-> 2 half sized [breadboards](https://www.adafruit.com/product/64)
+> 2 half sized [breadboards.](https://www.adafruit.com/product/64) * [half size permanent prototype boards](https://www.amazon.com/ElectroCookie-Solderable-Breadboard-Electronics-Gold-Plated/dp/B07ZYNWJ1S?crid=39OK8UTVRYTSN&dib=eyJ2IjoiMSJ9.64MecujH952nZ2nId_0qVfaB8OrrwDbW8gknDxvEJmbJeJ8Yybi0qqo6QBLV9jZ8m_V597wQUk_bMlxmLaEKDfPxAoA9FvC68cJDAGvgzTlCyPSGGXNndvseNkI68QE6-mGz0_yOJedUkHccwwza_Z5QAm3Zm3vBweJGSILPuvdDE0kBEm4qXWKPC7IKcTPSGa5KzCkfU35wQlQHgyWa7FgkackFrvZDtaQOMfAA0ag.092IcQ3w3WPDToB4EoM06FLvY6UuAsBSY0zn02ueses&dib_tag=se&keywords=full%2Bsize%2Bprototype%2Bbreadboard&qid=1737779731&sprefix=full%2Bsize%2Bprototype%2Bbreadboar%2Caps%2C130&sr=8-9&th=1) like the full size linked above.
 
 > 14 mcp23017 [chips](https://www.adafruit.com/product/732) (these can be found cheaper on ebay)
 
