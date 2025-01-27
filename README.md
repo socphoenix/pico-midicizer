@@ -142,7 +142,7 @@ buttons for the pedals, and then glued them under the pedal contact on the rear 
 These are wired up in the reverse order of the manuals. Working left to right, insert one wire from each button to the bottom eight, then right to left
 the top eight of each mcp chip. The other wire goes to ground on the breadboard.
 
-Finally the expression pedals. Remove these from the organ and cut out the wire used. Connect (solder) onto these a positive, output, and ground. 
+Next is the expression pedals. Remove these from the organ and cut out the wire used. Connect (solder) onto these a positive, output, and ground. 
 On our pedals these were as follows:
 > ground: second from the top pin
 
@@ -153,6 +153,14 @@ On our pedals these were as follows:
 
 Do this to one of the potentiometers on each pedal, and run the output wire from each back up to the pico. One of these will go in pin 31, the other in pin
 32 (the one in pin 31 will be midi controller 1, the other 2 both on channel 16 when setting this up in vpo software).
+
+Finally, we have one more **Optional** step here (if you are not using toe-studs you will want to remove that part of the code from the bottom of code.py) to attach the toe-studs to the console. There is one more board:
+![footswitches](https://github.com/user-attachments/assets/2908ba41-23bc-498e-b9b9-d251edc373ab)
+
+Since there are 12 generals on this organ I have written in 12 toe-studs to match. The Finished products will look like:
+![IMG_2701](https://github.com/user-attachments/assets/bb545a9d-423c-4b0f-b140-71e1ddca6d25)
+
+There is a detailed guide in the [toe-studs.md](https://github.com/socphoenix/pico-midicizer/blob/main/toe-studs.md) file as these are a bit of extra work to get installed.
 
 ### Computer Build
 I reused a computer for this, what's most important is the amount of ram. 2 channel organs often use over 16GB of ram. I have an example build for a new
