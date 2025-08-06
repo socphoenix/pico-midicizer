@@ -1,7 +1,5 @@
 # pico-midicizer
-This guide/code is for creating a midi controller to digitize an organ, with a guide on how it was installed into a Conn 650 theater organ. The code relies
-on Circuitpython 8 (tested with 8.0.4), which can be downloaded [here](https://circuitpython.org/board/raspberry_pi_pico/), and uses additional libraries
-downloadable [here](https://circuitpython.org/libraries).
+This guide/code is for creating a midi controller to digitize an organ, with a guide on how it was installed into a Conn 650 theater organ. There have been major changes between version 1.3 and 2.0! This program no longer uses python, it is written entirely in Arduino (C++). Minus added pedal divisional stops, and foot switches for the 32' pedal and tutti (bombarde), all code uses the same midi signals. The console is capable of running about twice as fast with this new update. **Breaking change: the compiled code is capable of running much faster but with that came instability from the length of wires used. The code was underclocked to 150 mhz, and there are now two devices, one for the keyboards, and one for the pedals, expression pedals, and footswitches.** 
 
 ## Building the microcontroller:
 It is assumed that you have some basic knowledge of these chips, if you are unfamiliar with mcp23017, there is plenty of documentation online explaining
@@ -20,7 +18,7 @@ The following parts are needed to build the controller:
 
 > buttons for the pedals, I used [7mm tactile buttons.](https://www.amazon.com/Momentary-Tactile-Button-Switch-black/dp/B0796Q3PRB/ref=sr_1_3?crid=2EAVE0CUDA4KD&keywords=7mm+tactile+buttons&qid=1680872519&sprefix=7mm+tactile+buttons%2Caps%2C139&sr=8-3) *As this project nears the 2 year mark, 3 of the most used pedals have had buttons stick and not want to turn off, I've replaced them with "normally open" [plastic reed switches.](https://www.amazon.com/Gebildet-Normally-Induction-2-5mm%C3%9714mm-Multi-Use/dp/B07YFBQ4HS?crid=1NSH6SE6G6QQM&dib=eyJ2IjoiMSJ9.HUOL_A7Z2Qz5bQ_J928PH0OS-e3Me_IYajI3StCkDG0FziABGIVP0PfqOLCOaOBoZpYAo9Z0pYh7E-lgbdr2ihkGz1mN-qyk0gGJdTpwuqxjHhdm1gcKMplluN1MAHBdbfbWFCWYEcPsS1UgkUqDb9AWoNeMjsHp6VEsmU5I4McEJxNDFEA6jl04jBW2TxeDLejnwQPktJr4qvG_lAdhJUHgaO7Lod-9sBsEh3je14M.1_pUIpOcC4QAD4kN2TnKCO0URvglzfvEd6sVWxWW-30&dib_tag=se&keywords=normally%2Bopen%2Bplastic%2Breed%2Bswitch&qid=1737779484&sprefix=normally%2Bopen%2Bplastic%2Breed%2Bswitch%2Caps%2C132&sr=8-5&th=1) If you are starting this project from scratch it may be preferable to use these from the get go.
 
-> 4 2.2k resistors, one attached to sda and scl of the first mcp chip of each i2c lane.
+> 6 2.2k resistors, one attached to sda and scl of the first mcp chip of each i2c lane.
 
 > 1/16" wood like [these](https://www.michaels.com/product/wood-square-16ct-by-make-market-10691829)
 
@@ -48,26 +46,11 @@ The final 5th board has 2 mcp23017 chips, and was placed behind the expression s
 The boards will need power/ground as well as i2c lines run between them as shown below:
 ![allboards](https://user-images.githubusercontent.com/18272432/230613981-a6c50181-7e46-45b3-aa45-ea47b7d842c3.png)
 
+There is a new breadboard for the 2nd pi pico, as used, it was a pico device with one power rail positive/negative, one positive/negative on a-ref for the expression pedals. Pins GP14, and 15 were used for the 32' and bombarde switches.
 
-### installing circuitpython:
-Hold the bootsel button on the pico and plug it into your computer. drag the circuitpython.uf2 file to the removable drive that shows up. It will
-disappear, then reappear once the install is done. There should be a folder named lib. From the .zip bundle of libraries copy the folders
-> adafruit_mcp230xx.mpy
 
-> adafruit_bus_device
-
-> adafruit_midi
-
-to this folder. Using an editor like [Mu](https://codewith.mu) that will write files completely on saving, copy the code.py file from this repository
-to the root of the drive as code.py
-
-<b>some computers may have issues booting with the controller plugged in due to it showing up as a storage device. It slowed the computer I'm using
-  down by quite a bit. Put the following code in a file name boot.py on the root of the controller's drive to disable the usb storage from showing up, 
-  once you are sure you won't need to access it again:</b>
-  
-> import storage
-> 
-> storage.disable_usb_drive()
+### Setting up the Arduino IDE:
+This project uses the RP2040 core, and the Adafruit tiny_usb library which you can download within the IDE. Other libraries from Arduino. Once installed hold the bootsel button while plugging in the devices. You can flash the code from the ide, or use the downloads from the release page. On MacOS there was an issue with the devices reading as the same unit. I fixed this by changing the board name on boards.txt in the .Arduino15 folder in the user library folder. This issue did not affect running under Linux. 
 
 At this point you can move to wiring the organ
 
@@ -187,7 +170,7 @@ I used [GrandOrgue](https://github.com/GrandOrgue/grandorgue) though this should
 
 > presets (all 12 in ascending order 0-5, 0-5): midi channel 16 9x note value: 64-76
 
-> expression shoes: midi channel 16 bx controller, controller 1/2, range 127-1
+> expression shoes: midi bx controller, controller 1/2, range 127-1
 
 As a note, Grandorgue comes with safe but not ideal defaults. In audio settings you should click on your sound card, then properties,
 and request a smaller latency. Then you should change buffers per sample to something as low as you can get without audio glitches. Mine is set up for
@@ -201,7 +184,7 @@ This should be all you need to start playing!
 You can view the before/after [here](https://youtu.be/CqBBFAP1S0w)
 
 ### License
-[CircuitPython](https://github.com/adafruit/circuitpython) and its [library bundle](https://github.com/adafruit/Adafruit_CircuitPython_Bundle) are licensed under the MIT License, as is this project. Please the LICENSE file for the full license.
+The RP2040 [arduino core](https://github.com/earlephilhower/arduino-pico) is licensed under the LGPL 2.0.  The [Adafruit_TinbyUSB](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) is licensed under the MIT license. This software is also licensed with the MIT license.
 
 ### Contributing
 This repo should stay stable for quite a while, but if you find bugs open an issue here on Github so it can be addressed.
