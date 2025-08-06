@@ -10,7 +10,7 @@ You will need the following supplies:
 >
 > mdf board (or similar) that is 1/4" thick.
 >
-> glue (a hot glue gun will likely be fine)
+> super glue
 
 
 ### Step 1:
