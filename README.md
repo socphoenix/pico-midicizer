@@ -184,7 +184,7 @@ This should be all you need to start playing!
 You can view the before/after [here](https://youtu.be/CqBBFAP1S0w)
 
 ### License
-The RP2040 [arduino core](https://github.com/earlephilhower/arduino-pico) is licensed under the LGPL 2.0.  The [Adafruit_TinbyUSB](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) is licensed under the MIT license. The Adafruit [mcp 23017 library](https://github.com/adafruit/Adafruit-MCP23017-Arduino-Library) is licensed under the BSD library. This software is also licensed with the MIT license.
+The RP2040 [arduino core](https://github.com/earlephilhower/arduino-pico) is licensed under the LGPL 2.0.  The [Adafruit_TinbyUSB](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) is licensed under the MIT license. The Adafruit [mcp 23017 library](https://github.com/adafruit/Adafruit-MCP23017-Arduino-Library) is licensed under the BSD license. This software is also licensed with the MIT license.
 
 ### Contributing
 This repo should stay stable for quite a while, but if you find bugs open an issue here on Github so it can be addressed.
