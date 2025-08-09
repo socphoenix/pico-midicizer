@@ -33,7 +33,7 @@ void setup() {
   Serial.begin(9600);
   //set midi channel to OMNI to start
   MIDI.begin(MIDI_CHANNEL_OMNI);
-  //set up main general pistons
+  //set up divisional pistons
   pinMode(12, INPUT_PULLUP);
   pinMode(8, INPUT_PULLUP);
   pinMode(9, INPUT_PULLUP);
@@ -45,18 +45,17 @@ void setup() {
   pinMode(20, INPUT_PULLUP);
   pinMode(21, INPUT_PULLUP);
   pinMode(15, INPUT_PULLUP);
+  pinMode(16, INPUT_PULLUP);
+  pinMode(17, INPUT_PULLUP);
   pinMode(22, INPUT_PULLUP);
-
-  //cancel button
   pinMode(4, INPUT_PULLUP);
-  //set button
   pinMode(5, INPUT_PULLUP);
+
+  //set up note tracking so signals are only sent once for each off/on
   for(int i = 0; i < 183; i++) {
     noteStatus[i] = 1;
   }
-  for(int i = 183; i < 215; i++) {
-    noteStatus[i] = 0;
-  }
+  
   //declare I2C lanes for both sets of chips
   Wire.setSDA(0);
   Wire.setSCL(1);
@@ -91,6 +90,12 @@ void setup() {
       }
     }
   }
+  //set up generals and cancel/set
+  mcp[12].begin_I2C(addresses[4], & Wire1);
+  for(int i = 0; i < 14; i++) {
+    mcp[12].pinMode(i, INPUT_PULLUP);
+  }
+
   Wire1.setClock(1000000);
 }
 
@@ -100,25 +105,28 @@ void loop() {
   MIDI.read();
   
   //read cancel and set, send midi event if changed
-  if(!digitalRead(4) && cncl == 1) {
+  int cancel = mcp[12].digitalRead(0);
+  int set1 = mcp[12].digitalRead(1);
+
+  if(cancel == 0 && cncl == 1) {
     MIDI.sendNoteOn(60, 64, 16);
     cncl = 0;
   }
-  if(digitalRead(4) == 1 && cncl == 0) {
+  if(cancel == 1 && cncl == 0) {
     MIDI.sendNoteOff(60, 64, 16);
     cncl = 1;
   }
-  if(!digitalRead(5) && set == 1) {
+  if(set1 == 0 && set == 1) {
     MIDI.sendNoteOn(61, 64, 16);
     set = 0;
   }
-  if(digitalRead(5) == 1 && set == 0) {
+  if(set1 == 1 && set == 0) {
     MIDI.sendNoteOff(61, 64, 16);
     set = 1;
   }
 
-  //look for depressed general pistons
-  int temp[12];
+  //look for depressed divisional pistons
+  int temp[16];
   temp[0] = digitalRead(12);
   temp[1] = digitalRead(8);
   temp[2] = digitalRead(9);
@@ -131,8 +139,13 @@ void loop() {
   temp[9] = digitalRead(21);
   temp[10] = digitalRead(15);
   temp[11] = digitalRead(22);
-  int midiNum = 64;
-  for(int i = 0; i < 12; i++) {
+  temp[12] = digitalRead(16);
+  temp[13] = digitalRead(17);
+  temp[14] = digitalRead(4);
+  temp[15] = digitalRead(5);
+
+  int midiNum = 1;
+  for(int i = 0; i < 16; i++) {
     if(temp[i] == 0) {
       MIDI.sendNoteOn(midiNum, 64, 16);
     }
@@ -327,6 +340,16 @@ void loop() {
       MIDI.sendNoteOff(midiNum, 64, 3);
       noteStatus[noteNum] = 1;
     }
+  }
+  
+  //look for general pistons
+  midiNum = 64;
+  for(int i = 2; i < 14; i++) {
+    int temp = mcp[12].digitalRead(i);
+    if(temp == 0) {
+      MIDI.sendNoteOn(midiNum, 64, 16);
+    }
+    midiNum++;
   }
   
 }
