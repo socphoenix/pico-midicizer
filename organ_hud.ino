@@ -49,12 +49,6 @@ void setup() {
   Wire.setSDA(0);
   Wire.setSCL(1);
   alpha4.begin(0x70);
-  // while (!Serial) {
-  //   digitalWrite(LED_BUILTIN, HIGH);
-  //   delay(1000);
-  //   digitalWrite(LED_BUILTIN, LOW);
-  //   delay(1000);
-  // }
   alpha4.writeDigitAscii(0, 'M');
   alpha4.writeDigitAscii(1, 'L');
   alpha4.writeDigitAscii(3, 'A');
@@ -62,12 +56,8 @@ void setup() {
 }
 
 void loop() {
-  //MIDI.sendContinue();
   if(MIDI.read()) {
     byte* arr = (byte*)MIDI.getSysExArray();
-    // for(int i = 0; i < 16; i++) {
-    //   Serial.println(char(arr[i]));
-    // }
     if(arr[3] == 1) {
       Serial.println(char(arr[5]));
       alpha4.writeDigitAscii(0, 'M');
