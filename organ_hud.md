@@ -36,4 +36,6 @@ pinout:
 16. Swell light 2 (don't forget the resistor! I worked left to right on these)
 17. Swell light 3 (don't forget the resistor! I worked left to right on these)
 19. Swell light 4 (don't forget the resistor! I worked left to right on these)
-20. Swell light 5 (don't forget the resistor! I worked left to right on these) 
+20. Swell light 5 (don't forget the resistor! I worked left to right on these)
+
+The negative trace on the LED panels goes to ground on the pico/board.
