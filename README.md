@@ -35,18 +35,11 @@ The second and third boards each have 4 mcp23017 chips:
 On the third board, chip 2 starts the new i2c line, sda/scl need to be connected to pins 4, 5 respectively on the pico, 13, 12 respectively on the 
 mcp23017. (second from the top left for sda, 3rd for scl as laid out in the diagram). This wiring was not in the all boards diagram. 
 
-The fourth board should be one mcp23017 but itself:
+The fourth board is the start of the 2nd rp2040, the file/binary labeled pico-midicizer_pedalboard.ino(uf2 for binary):
 
-![board4](https://user-images.githubusercontent.com/18272432/230613765-7d5fe86d-3275-4988-b678-c53c7d2df84c.png)
+![organ pedalboard_bb](https://github.com/user-attachments/assets/eec01b74-89a0-4a64-a6bf-4e46d044e5ed)
 
-The final 5th board has 2 mcp23017 chips, and was placed behind the expression shoes to lessen the wire lengths running the length of the organ:
-
-![board5](https://user-images.githubusercontent.com/18272432/230613886-0c882cb8-a3ca-4e55-a9a4-8e850bdf2384.png)
-
-The boards will need power/ground as well as i2c lines run between them as shown below:
-![allboards](https://user-images.githubusercontent.com/18272432/230613981-a6c50181-7e46-45b3-aa45-ea47b7d842c3.png)
-
-There is a new breadboard for the 2nd pi pico, as used, it was a pico device with one power rail positive/negative, one positive/negative on a-ref for the expression pedals. Pins GP14, and 15 were used for the 32' and bombarde switches.
+The first two mcp23017 chips are for the pedals. The third mcp23017 chip is for the general/divisional pistons, going generals 1-12, then 1-4 on divisionals. Pins GP14, and 15 were used for the 32' and bombarde switches. The expression shoe potentiometers should have pin 35 (if the usb port is on the left it's the pin to the right of the main power out) connected to +, 33 to -, and then for swell pin 31 connected to the middle pin of the potentiometer, 32 for the choir.
 
 
 ### Setting up the Arduino IDE:
