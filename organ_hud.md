@@ -2,7 +2,8 @@
 In the file organ_hud.ino there is code to add a display that shows/controls transpose and memory levels. There is also code in there to control 10 total LED lights to show the 
 choir/expression shoe levels (there are two sets of 5 lights on the Conn 650). I used white LEDS hooked to 1k resistors. There is an alphanumeric display with the backpack from 
 Adafruit allowing for up to 4 characters controlled by i2c. the schematic is:
-![organ hud_bb](https://github.com/user-attachments/assets/a2c15e7c-f992-4bb6-bf9f-63a95d42b7e1)
+![organ hud_bb](https://github.com/user-attachments/assets/f8593dc1-aa60-45a9-ab7e-2aa5ae710dcf)
+
 And an example of the finished board:
 ![IMG_3332](https://github.com/user-attachments/assets/de52af88-0158-450b-ab35-1989e2c1ddda)
 
@@ -11,7 +12,7 @@ Example of the LED lights backside (that goes into the light slots in the lid):
 Example of the LED boards (reused from original incandescants board:
 ![IMG_3329](https://github.com/user-attachments/assets/d44e98e5-64c6-4681-9cc3-bf5861b5dd1b)
 
-The light boards are very simple to look at, there is a negative trace that runs down the center of the board. put the shorter of the LED legs through that one, and the longer one on the other hold the original light was on. This 2nd hole connects to a solder point for a wire that will connect to the resistors.
+The light boards are very simple to look at, there is a negative trace that runs down the center of the board. put the shorter of the LED legs through that one, and the longer one on the other hole the original light was on. This 2nd hole connects to a solder point for a wire that will connect to the resistors.
 
 
 Example of the project in action:
